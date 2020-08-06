@@ -18,8 +18,17 @@ export default class HomeScreen extends Component {
             >
                 <Text>Home Screen</Text>
                 <Button
+                    title="Go to Test"
+                    onPress={() =>
+                        navigation.navigate("Test", {
+                            item1: "this is item1.",
+                            item2: "this is item2",
+                        })
+                    }
+                />
+                <Button
                     title="Go to Tetris"
-                    onPress={() => navigation.push("Tetris")}
+                    onPress={() => navigation.navigate("Tetris")}
                 />
             </View>
         );
