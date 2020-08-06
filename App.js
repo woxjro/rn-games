@@ -22,6 +22,7 @@ class TetrisScreen extends Component {
         };
     }
     render() {
+        const { navigation } = this.props;
         return (
             <View style={styles.container}>
                 <Grid w={10} h={20} />
@@ -31,7 +32,9 @@ class TetrisScreen extends Component {
                     }}
                 >
                     <View>
-                        <Text
+                        <Button
+                            title="Go to Tetris again"
+                            onPress={() => navigation.push("Tetris")}
                             style={{
                                 color: "red",
                                 fontSize: 14,
@@ -42,9 +45,7 @@ class TetrisScreen extends Component {
                                 marginLeft: 25,
                                 marginBottom: 17,
                             }}
-                        >
-                            {this.state.str}
-                        </Text>
+                        />
                     </View>
                 </TouchableOpacity>
             </View>
@@ -60,7 +61,7 @@ function HomeScreen({ navigation }) {
             <Text>Home Screen</Text>
             <Button
                 title="Go to Tetris"
-                onPress={() => navigation.navigate("Tetris")}
+                onPress={() => navigation.push("Tetris")}
             />
         </View>
     );
