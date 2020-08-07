@@ -21,7 +21,7 @@ export default class HomeScreen extends Component {
                     title="Go to Test"
                     onPress={() =>
                         navigation.navigate("Test", {
-                            item1: "this is item1.",
+                            item1: Math.floor(Math.random() * 100),
                             item2: "this is item2",
                         })
                     }
