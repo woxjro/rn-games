@@ -30,10 +30,6 @@ export default class HomeScreen extends Component {
                     title="Go to Tetris"
                     onPress={() => navigation.navigate("Tetris")}
                 />
-                <Button
-                    title="Go to Setting"
-                    onPress={() => navigation.navigate("Setting")}
-                />
             </View>
         );
     }
