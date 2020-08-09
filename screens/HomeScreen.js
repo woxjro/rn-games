@@ -34,6 +34,10 @@ export default class HomeScreen extends Component {
                     title="Go to Maps"
                     onPress={() => navigation.navigate("GoogleMap")}
                 />
+                <Button
+                    title="Go to StylePlayGround"
+                    onPress={() => navigation.navigate("StylePlayGround")}
+                />
             </View>
         );
     }
