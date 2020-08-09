@@ -1,16 +1,44 @@
 import React, { Component } from "react";
-import { Text, StyleSheet, View } from "react-native";
+import { Text, StyleSheet, View, Switch } from "react-native";
+//import CheckBox from "@react-native-community/checkbox";
 
 export default class StylePlayGroundScreen extends Component {
     constructor(props) {
         super(props);
-        this.state = { itemsContainer: { flexDirection: "row" } };
+        this.state = { isFlexDirectionColumn: true };
     }
     render() {
+        const { isFlexDirectionColumn } = this.state;
         return (
             <View style={styles.container}>
-                <View style={styles.itemSettingsContainer}></View>
-                <View style={styles.itemsContainer}>
+                <View style={styles.itemSettingsContainer}>
+                    <View
+                        style={{
+                            flexDirection: "row",
+                            justifyContent: "center",
+                            alignItems: "center",
+                        }}
+                    >
+                        <Text style={{ fontSize: 18 }}>flexDirection:</Text>
+                        <Text style={{ fontSize: 18 }}>
+                            {isFlexDirectionColumn ? "(column)" : "(row)"}
+                        </Text>
+                        <Switch
+                            value={isFlexDirectionColumn}
+                            onValueChange={() => {
+                                this.setState({
+                                    isFlexDirectionColumn: !isFlexDirectionColumn,
+                                });
+                            }}
+                        />
+                    </View>
+                </View>
+                <View
+                    style={{
+                        ...styles.itemsContainer,
+                        flexDirection: isFlexDirectionColumn ? "column" : "row",
+                    }}
+                >
                     <View style={styles.item1}>
                         <Text> Flex Item1</Text>
                     </View>
@@ -31,7 +59,12 @@ var styles = StyleSheet.create({
         flex: 1,
     },
     itemSettingsContainer: {
+        justifyContent: "center",
         flex: 2,
+    },
+    checkboxContainer: {
+        flexDirection: "column",
+        marginBottom: 20,
     },
     itemsContainer: {
         flex: 4,
