@@ -3,6 +3,7 @@ import HomeScreen from "./screens/HomeScreen";
 import TetrisScreen from "./screens/TetrisScreen";
 import TestScreen from "./screens/TestScreen";
 import SettingsScreen from "./screens/SettingScreen";
+import GoogleMapScreen from "./screens/GoogleMapScreen";
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
@@ -17,6 +18,7 @@ function HomeStackScreen() {
             <HomeStack.Screen name="Home" component={HomeScreen} />
             <HomeStack.Screen name="Test" component={TestScreen} />
             <HomeStack.Screen name="Tetris" component={TetrisScreen} />
+            <HomeStack.Screen name="GoogleMap" component={GoogleMapScreen} />
         </HomeStack.Navigator>
     );
 }

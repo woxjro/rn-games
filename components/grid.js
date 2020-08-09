@@ -325,18 +325,18 @@ export default class Grid extends Component {
             <View style={{ flex: 1, justifyContent: "space-around" }}>
                 <View
                     style={{
-                        paddingTop: 40,
+                        paddingTop: 15,
                         justifyContent: "center",
                         alignItems: "center",
                     }}
                 >
-                    <TouchableOpacity>
-                        <Text style={{ fontWeight: "700", fontSize: 26 }}>
-                            tetris
-                        </Text>
-                    </TouchableOpacity>
-
-                    <Text style={{ paddingTop: 10, fontSize: 16 }}>
+                    <Text
+                        style={{
+                            paddingBottom: 15,
+                            fontSize: 16,
+                            fontWeight: "600",
+                        }}
+                    >
                         Score: {this.state.score}
                     </Text>
                 </View>
