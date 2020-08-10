@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { View, Text, ActivityIndicator } from "react-native";
+import { View, Text, ActivityIndicator, Button } from "react-native";
 
 export default class CoinCheckScreen extends Component {
     constructor(props) {
@@ -58,6 +58,10 @@ export default class CoinCheckScreen extends Component {
                     <View>
                         <Text>asks:{this.state.asksAvg}</Text>
                         <Text>bids:{this.state.bidsAvg}</Text>
+                        <Button
+                            title="reload"
+                            onPress={() => this.fetchOrderBooks()}
+                        />
                     </View>
                 )}
             </View>
