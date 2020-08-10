@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { ActivityIndicator, View, Text, FlatList } from "react-native";
+import { ActivityIndicator, Button, View, Text, FlatList } from "react-native";
 export default class Test extends Component {
     constructor(props) {
         super(props);
@@ -46,6 +46,7 @@ export default class Test extends Component {
                     justifyContent: "center",
                 }}
             >
+                <Text>Test Screen</Text>
                 {isLoading ? (
                     <ActivityIndicator />
                 ) : (
@@ -59,7 +60,11 @@ export default class Test extends Component {
                         )}
                     />
                 )}
-                <Text>Test Screen</Text>
+                <Button
+                    onPress={() => this.asyncAwaitFetchData()}
+                    title="Fetch Data Again"
+                    color="#841584"
+                />
                 <Text>{item1}</Text>
                 <Text>{item2}</Text>
             </View>
