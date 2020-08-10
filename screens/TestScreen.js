@@ -56,7 +56,7 @@ export default class Test extends Component {
                 <View
                     style={{
                         flex: 1,
-                        justifyContent: "space-around",
+                        justifyContent: "center:",
                     }}
                 >
                     {isLoading ? (
