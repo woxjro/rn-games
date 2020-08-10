@@ -8,6 +8,7 @@ import StylePlayGroundScreen from "./screens/StylePlayGroundScreen";
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+import { createMaterialTopTabNavigator } from "@react-navigation/material-top-tabs";
 import Ionicons from "react-native-vector-icons";
 
 const Stack = createStackNavigator();
@@ -22,9 +23,25 @@ function HomeStackScreen() {
             <HomeStack.Screen name="GoogleMap" component={GoogleMapScreen} />
             <HomeStack.Screen
                 name="StylePlayGround"
-                component={StylePlayGroundScreen}
+                component={StylePlayGroundTopTab}
             />
         </HomeStack.Navigator>
+    );
+}
+
+const MaterialTopTab = createMaterialTopTabNavigator();
+function StylePlayGroundTopTab() {
+    return (
+        <MaterialTopTab.Navigator>
+            <MaterialTopTab.Screen
+                name="StylePlayGround"
+                component={StylePlayGroundScreen}
+            />
+            <MaterialTopTab.Screen
+                name="StylePlayGround2"
+                component={StylePlayGroundScreen}
+            />
+        </MaterialTopTab.Navigator>
     );
 }
 
