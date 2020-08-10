@@ -27,6 +27,10 @@ export default class HomeScreen extends Component {
                     }
                 />
                 <Button
+                    title="Got to expo Camera"
+                    onPress={() => navigation.navigate("ExpoCamera")}
+                />
+                <Button
                     title="Go to Tetris"
                     onPress={() => navigation.navigate("Tetris")}
                 />
