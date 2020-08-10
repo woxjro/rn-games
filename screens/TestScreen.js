@@ -1,5 +1,12 @@
 import React, { Component } from "react";
-import { ActivityIndicator, Button, View, Text, FlatList } from "react-native";
+import {
+    ActivityIndicator,
+    Button,
+    View,
+    Text,
+    FlatList,
+    SafeAreaView,
+} from "react-native";
 export default class Test extends Component {
     constructor(props) {
         super(props);
@@ -46,27 +53,35 @@ export default class Test extends Component {
                     justifyContent: "center",
                 }}
             >
-                <Text>Test Screen</Text>
-                {isLoading ? (
-                    <ActivityIndicator />
-                ) : (
-                    <FlatList
-                        data={data}
-                        keyExtractor={({ id }, index) => id}
-                        renderItem={({ item }) => (
-                            <Text>
-                                {item.title}, {item.releaseYear}
-                            </Text>
-                        )}
+                <View
+                    style={{
+                        flex: 1,
+                        justifyContent: "space-around",
+                    }}
+                >
+                    {isLoading ? (
+                        <ActivityIndicator />
+                    ) : (
+                        <FlatList
+                            data={data}
+                            keyExtractor={({ id }, index) => id}
+                            renderItem={({ item }) => (
+                                <Text>
+                                    {item.title}, {item.releaseYear}
+                                </Text>
+                            )}
+                        />
+                    )}
+                    <Button
+                        onPress={() => this.asyncAwaitFetchData()}
+                        title="Fetch Data Again"
+                        color="#841584"
                     />
-                )}
-                <Button
-                    onPress={() => this.asyncAwaitFetchData()}
-                    title="Fetch Data Again"
-                    color="#841584"
-                />
-                <Text>{item1}</Text>
-                <Text>{item2}</Text>
+                </View>
+                <View style={{ flex: 1 }}>
+                    <Text>{item1}</Text>
+                    <Text>{item2}</Text>
+                </View>
             </View>
         );
     }
