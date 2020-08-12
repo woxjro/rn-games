@@ -1,5 +1,5 @@
 import * as React from "react";
-import { StyleSheet, View } from "react-native";
+import { StyleSheet, View, Text, TouchableOpacity } from "react-native";
 
 export default function StylePlayGround2Screen() {
     const colors = [
@@ -11,9 +11,78 @@ export default function StylePlayGround2Screen() {
         "skyblue",
         "steelblue",
     ];
+    const flexDirectionType = [
+        "row",
+        "row-reverse",
+        "column",
+        "column-reverse",
+    ];
+    const justifyContentType = [
+        "flex-start",
+        "center",
+        "flex-end",
+        "space-between",
+        "space-around",
+    ];
+    const alignItemsType = [
+        "stretch",
+        "flex-start",
+        "flex-end",
+        "center",
+        "baseline",
+    ];
     return (
         <View style={styles.container}>
-            <View style={styles.setting}></View>
+            <View style={styles.setting}>
+                <View>
+                    <Text>flexDirection</Text>
+                    <View style={{ flexDirection: "row" }}>
+                        {flexDirectionType.map((type, index) => {
+                            return (
+                                <TouchableOpacity
+                                    key={index}
+                                    style={styles.button}
+                                    onPress={() => {}}
+                                >
+                                    <Text>{type}</Text>
+                                </TouchableOpacity>
+                            );
+                        })}
+                    </View>
+                </View>
+                <View>
+                    <Text>justifyContent</Text>
+                    <View style={{ flexDirection: "row" }}>
+                        {justifyContentType.map((type, index) => {
+                            return (
+                                <TouchableOpacity
+                                    key={index}
+                                    style={styles.button}
+                                    onPress={() => {}}
+                                >
+                                    <Text>{type}</Text>
+                                </TouchableOpacity>
+                            );
+                        })}
+                    </View>
+                </View>
+                <View>
+                    <Text>alignItems</Text>
+                    <View style={{ flexDirection: "row" }}>
+                        {alignItemsType.map((type, index) => {
+                            return (
+                                <TouchableOpacity
+                                    key={index}
+                                    style={styles.button}
+                                    onPress={() => {}}
+                                >
+                                    <Text>{type}</Text>
+                                </TouchableOpacity>
+                            );
+                        })}
+                    </View>
+                </View>
+            </View>
             <View style={styles.itemsContainer}>
                 {colors.map((color, index) => {
                     return (
@@ -35,6 +104,12 @@ var styles = StyleSheet.create({
         flex: 1,
         alignItems: "center",
         justifyContent: "center",
+    },
+    button: {
+        alignItems: "center",
+        backgroundColor: "#DDDDDD",
+        padding: 10,
+        marginLeft: 3,
     },
     setting: {
         marginTop: 10,
