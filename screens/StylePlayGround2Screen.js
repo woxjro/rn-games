@@ -1,43 +1,35 @@
-import React, { Component } from "react";
-import { Text, StyleSheet, View, Switch } from "react-native";
+import * as React from "react";
+import { StyleSheet, View } from "react-native";
 
-export default class StylePlayGround2Screen extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {};
-    }
-
-    render() {
-        const colors = [
-            "aqua",
-            "aquamarine",
-            "dodgerblue",
-            "cornflowerblue",
-            "powderblue",
-            "skyblue",
-            "steelblue",
-        ];
-        return (
-            <View style={styles.container}>
-                <View style={styles.setting}></View>
-                <View style={styles.itemsContainer}>
-                    {colors.map((color, index) => {
-                        return (
-                            <View
-                                key={index}
-                                style={{
-                                    ...styles.item,
-                                    backgroundColor: color,
-                                }}
-                            ></View>
-                        );
-                    })}
-                </View>
+export default function StylePlayGround2Screen() {
+    const colors = [
+        "aqua",
+        "aquamarine",
+        "dodgerblue",
+        "cornflowerblue",
+        "powderblue",
+        "skyblue",
+        "steelblue",
+    ];
+    return (
+        <View style={styles.container}>
+            <View style={styles.setting}></View>
+            <View style={styles.itemsContainer}>
+                {colors.map((color, index) => {
+                    return (
+                        <View
+                            key={index}
+                            style={{
+                                ...styles.item,
+                                backgroundColor: color,
+                            }}
+                        ></View>
+                    );
+                })}
             </View>
-        );
-    }
+        </View>
+    );
 }
-
 var styles = StyleSheet.create({
     container: {
         flex: 1,
