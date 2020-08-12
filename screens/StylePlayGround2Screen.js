@@ -7,11 +7,9 @@ export default function StylePlayGround2Screen() {
     const [alignItemsType, setAlignItemsType] = useState("stretch");
 
     const colors = [
-        "aqua",
         "aquamarine",
         "dodgerblue",
         "cornflowerblue",
-        "powderblue",
         "skyblue",
         "steelblue",
     ];
@@ -46,7 +44,14 @@ export default function StylePlayGround2Screen() {
                             return (
                                 <TouchableOpacity
                                     key={index}
-                                    style={styles.button}
+                                    style={
+                                        type === flexDirectionType
+                                            ? {
+                                                  ...styles.button,
+                                                  backgroundColor: "gray",
+                                              }
+                                            : styles.button
+                                    }
                                     onPress={() => {
                                         setFlexDirectionType(type);
                                         styles.itemsContainer = {
@@ -68,7 +73,14 @@ export default function StylePlayGround2Screen() {
                             return (
                                 <TouchableOpacity
                                     key={index}
-                                    style={styles.button}
+                                    style={
+                                        type === justifyContentType
+                                            ? {
+                                                  ...styles.button,
+                                                  backgroundColor: "gray",
+                                              }
+                                            : styles.button
+                                    }
                                     onPress={() => {
                                         setJustifyContentType(type);
                                         styles.itemsContainer = {
@@ -90,7 +102,14 @@ export default function StylePlayGround2Screen() {
                             return (
                                 <TouchableOpacity
                                     key={index}
-                                    style={styles.button}
+                                    style={
+                                        type === alignItemsType
+                                            ? {
+                                                  ...styles.button,
+                                                  backgroundColor: "gray",
+                                              }
+                                            : styles.button
+                                    }
                                     onPress={() => {
                                         setAlignItemsType(type);
                                         styles.itemsContainer = {
