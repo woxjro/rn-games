@@ -1,7 +1,11 @@
-import * as React from "react";
+import React, { useState, useEffect } from "react";
 import { StyleSheet, View, Text, TouchableOpacity } from "react-native";
 
 export default function StylePlayGround2Screen() {
+    const [flexDirectionType, setFlexDirectionType] = useState("column");
+    const [justifyContentType, setJustifyContentType] = useState("flex-start");
+    const [alignItemsType, setAlignItemsType] = useState("stretch");
+
     const colors = [
         "aqua",
         "aquamarine",
@@ -11,38 +15,48 @@ export default function StylePlayGround2Screen() {
         "skyblue",
         "steelblue",
     ];
-    const flexDirectionType = [
+    const flexDirectionTypes = [
         "row",
         "row-reverse",
         "column",
         "column-reverse",
     ];
-    const justifyContentType = [
+    const justifyContentTypes = [
         "flex-start",
         "center",
         "flex-end",
         "space-between",
         "space-around",
     ];
-    const alignItemsType = [
+    const alignItemsTypes = [
         "stretch",
         "flex-start",
         "flex-end",
         "center",
         "baseline",
     ];
+    useEffect(() => {
+        styles.itemsContainer = {
+            ...styles.itemsContainer,
+            flexDirection: flexDirectionType,
+            justifyContent: justifyContentType,
+            alignItems: alignItemsType,
+        };
+    });
     return (
         <View style={styles.container}>
             <View style={styles.setting}>
                 <View>
-                    <Text>flexDirection</Text>
+                    <Text>flexDirection:{flexDirectionType}</Text>
                     <View style={{ flexDirection: "row" }}>
-                        {flexDirectionType.map((type, index) => {
+                        {flexDirectionTypes.map((type, index) => {
                             return (
                                 <TouchableOpacity
                                     key={index}
                                     style={styles.button}
-                                    onPress={() => {}}
+                                    onPress={() => {
+                                        setFlexDirectionType(type);
+                                    }}
                                 >
                                     <Text>{type}</Text>
                                 </TouchableOpacity>
@@ -51,14 +65,16 @@ export default function StylePlayGround2Screen() {
                     </View>
                 </View>
                 <View>
-                    <Text>justifyContent</Text>
+                    <Text>justifyContent:{justifyContentType}</Text>
                     <View style={{ flexDirection: "row" }}>
-                        {justifyContentType.map((type, index) => {
+                        {justifyContentTypes.map((type, index) => {
                             return (
                                 <TouchableOpacity
                                     key={index}
                                     style={styles.button}
-                                    onPress={() => {}}
+                                    onPress={() => {
+                                        setJustifyContentType(type);
+                                    }}
                                 >
                                     <Text>{type}</Text>
                                 </TouchableOpacity>
@@ -67,14 +83,16 @@ export default function StylePlayGround2Screen() {
                     </View>
                 </View>
                 <View>
-                    <Text>alignItems</Text>
+                    <Text>alignItems:{alignItemsType}</Text>
                     <View style={{ flexDirection: "row" }}>
-                        {alignItemsType.map((type, index) => {
+                        {alignItemsTypes.map((type, index) => {
                             return (
                                 <TouchableOpacity
                                     key={index}
                                     style={styles.button}
-                                    onPress={() => {}}
+                                    onPress={() => {
+                                        setAlignItemsType(type);
+                                    }}
                                 >
                                     <Text>{type}</Text>
                                 </TouchableOpacity>
@@ -118,12 +136,15 @@ var styles = StyleSheet.create({
         width: "100%",
         borderColor: "black",
         borderWidth: 1,
-        flex: 1,
+        flex: 3,
         alignItems: "center",
         justifyContent: "center",
     },
     itemsContainer: {
-        flex: 2,
+        flex: 4,
+        flexDirection: "column",
+        justifyContent: "flex-start",
+        alignItems: "stretch",
     },
     item: {
         width: 40,
