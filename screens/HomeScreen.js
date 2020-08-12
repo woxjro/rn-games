@@ -16,9 +16,8 @@ export default class HomeScreen extends Component {
                     justifyContent: "center",
                 }}
             >
-                <Text>Home Screen</Text>
                 <Button
-                    title="Go to Test"
+                    title="Test"
                     onPress={() =>
                         navigation.navigate("Test", {
                             item1: Math.floor(Math.random() * 100),
@@ -27,19 +26,19 @@ export default class HomeScreen extends Component {
                     }
                 />
                 <Button
-                    title="Go to Coin Check"
+                    title="Coin Check"
                     onPress={() => navigation.navigate("CoinCheck")}
                 />
                 <Button
-                    title="Go to Tetris"
+                    title="Tetris"
                     onPress={() => navigation.navigate("Tetris")}
                 />
                 <Button
-                    title="Go to Maps"
+                    title="Maps"
                     onPress={() => navigation.navigate("GoogleMap")}
                 />
                 <Button
-                    title="Go to StylePlayGround"
+                    title="StylePlayGround"
                     onPress={() => navigation.navigate("StylePlayGround")}
                 />
             </View>
