@@ -35,14 +35,7 @@ export default function StylePlayGround2Screen() {
         "center",
         "baseline",
     ];
-    useEffect(() => {
-        styles.itemsContainer = {
-            ...styles.itemsContainer,
-            flexDirection: flexDirectionType,
-            justifyContent: justifyContentType,
-            alignItems: alignItemsType,
-        };
-    });
+    useEffect(() => {});
     return (
         <View style={styles.container}>
             <View style={styles.setting}>
@@ -56,6 +49,10 @@ export default function StylePlayGround2Screen() {
                                     style={styles.button}
                                     onPress={() => {
                                         setFlexDirectionType(type);
+                                        styles.itemsContainer = {
+                                            ...styles.itemsContainer,
+                                            flexDirection: type,
+                                        };
                                     }}
                                 >
                                     <Text>{type}</Text>
@@ -74,6 +71,10 @@ export default function StylePlayGround2Screen() {
                                     style={styles.button}
                                     onPress={() => {
                                         setJustifyContentType(type);
+                                        styles.itemsContainer = {
+                                            ...styles.itemsContainer,
+                                            justifyContent: type,
+                                        };
                                     }}
                                 >
                                     <Text>{type}</Text>
@@ -92,6 +93,10 @@ export default function StylePlayGround2Screen() {
                                     style={styles.button}
                                     onPress={() => {
                                         setAlignItemsType(type);
+                                        styles.itemsContainer = {
+                                            ...styles.itemsContainer,
+                                            alignItems: type,
+                                        };
                                     }}
                                 >
                                     <Text>{type}</Text>
