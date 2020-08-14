@@ -52,7 +52,7 @@ export default class Grid extends Component {
 
     generateBlocks() {
         var blocks = [];
-        for (let i = 0; i < 5; i++) {
+        for (let i = 0; i < 100; i++) {
             blocks.push({ id: i, ...createRandomBlock() });
         }
         console.log(blocks);
@@ -313,8 +313,12 @@ export default class Grid extends Component {
                     <Icon name="hand-o-right" size={50} />
                 </TouchableOpacity>
 
-                <TouchableOpacity onPress={() => this.loadNextBlock()}>
+                <TouchableOpacity onPress={() => {}}>
                     <Icon name="rotate-right" size={50} />
+                </TouchableOpacity>
+
+                <TouchableOpacity onPress={() => this.loadNextBlock()}>
+                    <Icon name="forward" size={50} />
                 </TouchableOpacity>
             </View>
         );
