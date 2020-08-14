@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import { Provider } from "react-redux";
+import { store } from "./redux/redux";
 //
 import HomeScreen from "./screens/HomeScreen";
 import TetrisScreen from "./screens/TetrisScreen";
@@ -63,15 +65,17 @@ const Tab = createBottomTabNavigator();
 export default class App extends Component {
     render() {
         return (
-            <NavigationContainer>
-                <Tab.Navigator>
-                    <Tab.Screen name="Home" component={HomeStackScreen} />
-                    <Tab.Screen
-                        name="Settings"
-                        component={SettingsStackScreen}
-                    />
-                </Tab.Navigator>
-            </NavigationContainer>
+            <Provider store={store}>
+                <NavigationContainer>
+                    <Tab.Navigator>
+                        <Tab.Screen name="Home" component={HomeStackScreen} />
+                        <Tab.Screen
+                            name="Settings"
+                            component={SettingsStackScreen}
+                        />
+                    </Tab.Navigator>
+                </NavigationContainer>
+            </Provider>
         );
     }
 }
