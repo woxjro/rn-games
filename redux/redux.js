@@ -1,5 +1,6 @@
 // redux.js
 import { combineReducers, createStore } from "redux";
+import { SwitchComponent } from "react-native";
 
 // actions.js
 // actionはreduxの機能でなく、オブジェクトを作るための純粋なjsの関数です。
@@ -16,15 +17,26 @@ export const setName = (name) => ({
     name: name,
 });
 
-INITIAL_STATE = {
+const USER_INITIAL_STATE = {
     name: "Nanasi",
+};
+
+export const plusOne = (count) => {
+    return {
+        type: "PLUS_ONE",
+        count: count + 1,
+    };
+};
+
+const COUNT_INITIAL_STATE = {
+    count: 0,
 };
 
 // reducers.js
 // reduxではglobal stateを巨大なjson(store)として管理します。stateの変更はjsonの書き換えによってのみ管理します。
 // actionは純粋なjsのオブジェクトを作る関数であることを思い出してください。
 // reducerはactionで生成されたオブジェクトを受け取り、巨大なjson(store)を書き換える関数です。
-const userReducer = (state = INITIAL_STATE, action) => {
+const userReducer = (state = USER_INITIAL_STATE, action) => {
     switch (action.type) {
         case "ADD_NAME":
             return { ...state, name: action.name };
@@ -35,8 +47,18 @@ const userReducer = (state = INITIAL_STATE, action) => {
     }
 };
 
+const countReducer = (state = COUNT_INITIAL_STATE, action) => {
+    switch (action.type) {
+        case "PLUS_ONE":
+            return { ...state, count: action.count };
+        default:
+            return state;
+    }
+};
+
 export const reducers = combineReducers({
     user: userReducer,
+    count: countReducer,
 });
 
 // store.js
@@ -47,10 +69,6 @@ export const store = createStore(reducers);
 // debuggerが現れるので、consoleタブをクリックし、エミュレータ上でアプリをcommandd + rで再起動しましょう。
 console.log("----store.getState()----");
 console.log(store.getState());
-
-// arrayやobjectを綺麗に表示したい時はconsole.tableが便利です。
-console.log("----store.getState()----");
-console.table(store.getState());
 
 // storeはjsonです。つまりjsのオブジェクトです。 jsの関数のtypeofでstoreのstateがオブジェクトであることを確かめましょう。
 console.log("----typeof store.getState----");
