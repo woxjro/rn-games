@@ -1,6 +1,5 @@
 // redux.js
 import { combineReducers, createStore } from "redux";
-import { SwitchComponent } from "react-native";
 
 // actions.js
 // actionはreduxの機能でなく、オブジェクトを作るための純粋なjsの関数です。

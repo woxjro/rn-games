@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import { connect } from "react-redux";
 import { View, Text, Button } from "react-native";
+import { plusOne } from "../redux/redux";
 
-function SettingsScreen({ navigation, state }) {
+function SettingsScreen({ navigation, state, plusOne }) {
     const [count, setCount] = useState(0);
     return (
         <View
@@ -13,12 +14,13 @@ function SettingsScreen({ navigation, state }) {
             }}
         >
             <Text>Settings!</Text>
-            <Text>now count is {count}</Text>
+            <Text>now count is {count} (hooks)</Text>
+            <Text>now count is {state.count.count} (redux)</Text>
             <Button
                 title="+1"
                 onPress={() => {
-                    console.log(state);
-                    setCount(count + 1);
+                    plusOne(count);
+                    setTimeout(() => setCount(count + 1), 2000);
                 }}
             />
         </View>
@@ -28,8 +30,12 @@ function SettingsScreen({ navigation, state }) {
 const mapStateToProps = (state) => {
     return { state: state };
 };
-const mapDispatchToProps = (state) => {
-    return {};
+const mapDispatchToProps = (dispatch) => {
+    return {
+        plusOne: (count) => {
+            dispatch(plusOne(count));
+        },
+    };
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(SettingsScreen);
