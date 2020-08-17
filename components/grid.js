@@ -10,7 +10,7 @@ export default class Grid extends Component {
             w: props.w,
             h: props.h,
             grid: [],
-            blocks: this.generateBlocks(),
+            blocks: [],
             score: 0,
             wp: null,
             hp: null,
@@ -71,7 +71,7 @@ export default class Grid extends Component {
                             var color = "white";
                             return (
                                 <TouchableOpacity
-                                    key={j}
+                                    key={i + "-" + j}
                                     onPress={() =>
                                         this.changeColor(i, j, "blue")
                                     }

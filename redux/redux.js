@@ -12,12 +12,12 @@ export const deleteName = () => ({
 
 // 引数nameをとり、{type: "ADD_NAME", name: name}を返すjsの関数。
 export const setName = (name) => ({
-    type: "ADD_NAME",
+    type: "SET_NAME",
     name: name,
 });
 
 const USER_INITIAL_STATE = {
-    name: "Nanasi",
+    name: "unknown",
 };
 
 export const plusOne = (count) => {
@@ -37,7 +37,7 @@ const COUNT_INITIAL_STATE = {
 // reducerはactionで生成されたオブジェクトを受け取り、巨大なjson(store)を書き換える関数です。
 const userReducer = (state = USER_INITIAL_STATE, action) => {
     switch (action.type) {
-        case "ADD_NAME":
+        case "SET_NAME":
             return { ...state, name: action.name };
         case "DELETE_NAME":
             return { ...state, name: "" };
