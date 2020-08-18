@@ -169,6 +169,9 @@ var styles = StyleSheet.create({
         flexDirection: "column",
         justifyContent: "flex-start",
         alignItems: "stretch",
+        borderWidth: 1,
+        width: "100%",
+        height: "100%",
     },
     item: {
         width: 40,
