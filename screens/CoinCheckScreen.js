@@ -1,5 +1,11 @@
 import React, { Component } from "react";
-import { View, Text, ActivityIndicator, Button } from "react-native";
+import {
+    View,
+    Text,
+    ActivityIndicator,
+    Button,
+    StyleSheet,
+} from "react-native";
 
 export default class CoinCheckScreen extends Component {
     constructor(props) {
@@ -51,7 +57,7 @@ export default class CoinCheckScreen extends Component {
     render() {
         const { isLoading, orderBooks } = this.state;
         return (
-            <View>
+            <View style={styles.container}>
                 {isLoading ? (
                     <ActivityIndicator />
                 ) : (
@@ -68,3 +74,13 @@ export default class CoinCheckScreen extends Component {
         );
     }
 }
+
+const styles = StyleSheet.create({
+    container: {
+        justifyContent: "center",
+        alignItems: "center",
+        borderWidth: 1,
+        width: "100%",
+        height: "100%",
+    },
+});
